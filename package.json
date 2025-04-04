@@ -1,14 +1,29 @@
 {
   "name": "react-router-ts",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Erik Codev",
+    "url": "https://github.com/notcodev"
+  },
+  "contributors": [
+    {
+      "name": "Erik Codev",
+      "url": "https://github.com/notcodev"
+    }
+  ],
+  "homepage": "https://github.com/notcodev/react-router-ts",
+  "bugs": "https://github.com/notcodev/react-router-ts/issues",
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@types/react": "^18.3.19",
     "react": "^18.3.1",
@@ -24,5 +39,6 @@
     "@types/react": {
       "optional": true
     }
-  }
+  },
+  "keywords": []
 }
