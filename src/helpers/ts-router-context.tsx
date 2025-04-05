@@ -14,13 +14,15 @@ export const useTSRouter = () => {
   return context
 }
 
+export interface TSRouterProviderProps {
+  children: React.ReactNode
+  router: TSRouter
+}
+
 export const TSRouterProvider = ({
   children,
   router,
-}: {
-  children: React.ReactNode
-  router: TSRouter
-}) => {
+}: TSRouterProviderProps) => {
   return (
     <TSRouterContext.Provider value={router}>
       {children}

@@ -2,7 +2,10 @@ export { TSLink, type TSLinkProps } from './components/ts-link'
 export { TSNavLink, type TSNavLinkProps } from './components/ts-nav-link'
 export { TSNavigate, type TSNavigateProps } from './components/ts-navigate'
 export { buildPath } from './helpers/build-path'
-export { TSRouterProvider } from './helpers/ts-router-context'
+export {
+  TSRouterProvider,
+  type TSRouterProviderProps,
+} from './helpers/ts-router-context'
 export {
   type TSNavigateFunction,
   type TSNavigateFunctionOptions,
