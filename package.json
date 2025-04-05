@@ -3,32 +3,56 @@
   "version": "0.1.0",
   "description": "",
   "license": "MIT",
+  "private": true,
   "author": {
     "name": "Erik Codev",
     "url": "https://github.com/notcodev"
   },
-  "contributors": [
+  "maintainers": [
     {
       "name": "Erik Codev",
       "url": "https://github.com/notcodev"
     }
   ],
   "homepage": "https://github.com/notcodev/react-router-ts",
+  "repository": "https://github.com/notcodev/react-router-ts",
   "bugs": "https://github.com/notcodev/react-router-ts/issues",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
   "files": [
     "dist/**/*"
   ],
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=20.x"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cd ./playground && vite",
+    "build": "shx rm -rf dist && rollup -c --bundleConfigAsCjs",
+    "lint": "eslint . --ext {ts,tsx} --no-error-on-unmatched-pattern --fix"
   },
   "devDependencies": {
+    "@siberiacancode/builder": "^1.4.0",
     "@types/react": "^18.3.19",
+    "@types/react-dom": "^18.3.6",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^8.57.0",
+    "eslint-kit": "^11.0.0",
+    "prettier": "^3.0.0",
     "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router": "^7.5.0",
-    "typescript": "^5.8.2"
+    "shx": "^0.4.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.5"
   },
   "peerDependencies": {
     "@types/react": "^18.0.0",
@@ -40,5 +64,9 @@
       "optional": true
     }
   },
-  "keywords": []
+  "keywords": [
+    "react",
+    "router",
+    "typesafe"
+  ]
 }
