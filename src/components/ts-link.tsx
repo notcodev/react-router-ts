@@ -1,13 +1,13 @@
-import { LinkProps } from "react-router";
-import { AnyParams, TransformProps } from "../types";
-import { useTSRouter } from "../helpers/ts-router-context";
-import { Link } from "react-router";
-import { buildPath } from "../helpers/build-path";
+import { Link, LinkProps } from 'react-router'
+
+import { buildPath } from '../helpers/build-path'
+import { useTSRouter } from '../helpers/ts-router-context'
+import { AnyParams, TransformProps } from '../types'
 
 export type TSLinkProps<Params extends AnyParams> = TransformProps<
   LinkProps,
   Params
->;
+>
 
 export const TSLink = <Params extends AnyParams>({
   to,
@@ -16,7 +16,7 @@ export const TSLink = <Params extends AnyParams>({
   hash,
   ...props
 }: TSLinkProps<Params>) => {
-  const router = useTSRouter();
+  const router = useTSRouter()
   return (
     <Link
       to={buildPath({
@@ -28,5 +28,5 @@ export const TSLink = <Params extends AnyParams>({
       })}
       {...props}
     />
-  );
-};
+  )
+}

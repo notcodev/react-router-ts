@@ -1,19 +1,20 @@
-import { useParams } from "react-router";
-import { AnyParams, RouteInstance } from "../types";
+import { useParams } from 'react-router'
+
+import { AnyParams, RouteInstance } from '../types'
 
 export const useTSParams = <Params extends AnyParams>(
   route: RouteInstance<Params>,
 ): Readonly<Params> => {
-  const params = useParams();
+  const params = useParams()
 
   if (!route.paramsDefinition) {
-    return {} as Params;
+    return {} as Params
   }
 
   const entries = Object.entries(route.paramsDefinition) as [
     keyof Params,
-    "string" | "number",
-  ][];
+    'string' | 'number',
+  ][]
 
   const parsedParamsEntries = entries.map(([key, value]) => [
     key,
@@ -21,7 +22,7 @@ export const useTSParams = <Params extends AnyParams>(
       number: (param: any) => Number(param),
       string: (param: any) => param,
     }[value](params[key]),
-  ]);
+  ])
 
-  return Object.fromEntries(parsedParamsEntries);
-};
+  return Object.fromEntries(parsedParamsEntries)
+}

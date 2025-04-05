@@ -1,15 +1,17 @@
-import { PathRouteProps, Route } from "react-router";
-import { LayoutView, RouteView } from "../types";
-import { renderRouteViews } from "src/helpers/render-route-views";
+import { PathRouteProps, Route } from 'react-router'
+
+import { renderRouteViews } from '../helpers/render-route-views'
+import { LayoutView, RouteView } from '../types'
 
 export const createLayoutView =
-  (props: Omit<PathRouteProps, "path" | "index" | "children">) =>
+  (props: Omit<PathRouteProps, 'path' | 'index' | 'children'>) =>
   (...childViews: (RouteView | LayoutView)[]): LayoutView => {
-    // Important: spread operator on renderRouteViews output used to prevent warning about key prop
     return {
-      render: (matcher) => (
-        <Route {...props}>{...renderRouteViews(childViews, matcher)}</Route>
+      render: (matcher, key) => (
+        <Route key={key} {...props}>
+          {renderRouteViews(childViews, matcher)}
+        </Route>
       ),
       childViews,
-    };
-  };
+    }
+  }

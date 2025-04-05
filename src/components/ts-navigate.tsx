@@ -1,13 +1,13 @@
-import { NavigateProps } from "react-router";
-import { useTSRouter } from "../helpers/ts-router-context";
-import { AnyParams, TransformProps } from "src/types";
-import { Navigate } from "react-router";
-import { buildPath } from "../helpers/build-path";
+import { Navigate, NavigateProps } from 'react-router'
+
+import { buildPath } from '../helpers/build-path'
+import { useTSRouter } from '../helpers/ts-router-context'
+import { AnyParams, TransformProps } from '../types'
 
 export type TSNavigateProps<Params extends AnyParams> = TransformProps<
   NavigateProps,
   Params
->;
+>
 
 export const TSNavigate = <Params extends AnyParams>({
   to,
@@ -16,7 +16,7 @@ export const TSNavigate = <Params extends AnyParams>({
   hash,
   ...props
 }: TSNavigateProps<Params>) => {
-  const router = useTSRouter();
+  const router = useTSRouter()
   return (
     <Navigate
       to={buildPath({
@@ -28,5 +28,5 @@ export const TSNavigate = <Params extends AnyParams>({
       })}
       {...props}
     />
-  );
-};
+  )
+}

@@ -1,13 +1,13 @@
-import { NavLinkProps } from "react-router";
-import { AnyParams, TransformProps } from "../types";
-import { useTSRouter } from "../helpers/ts-router-context";
-import { NavLink } from "react-router";
-import { buildPath } from "../helpers/build-path";
+import { NavLink, NavLinkProps } from 'react-router'
+
+import { buildPath } from '../helpers/build-path'
+import { useTSRouter } from '../helpers/ts-router-context'
+import { AnyParams, TransformProps } from '../types'
 
 export type TSNavLinkProps<Params extends AnyParams> = TransformProps<
   NavLinkProps,
   Params
->;
+>
 
 export const TSNavLink = <Params extends AnyParams>({
   to,
@@ -16,7 +16,7 @@ export const TSNavLink = <Params extends AnyParams>({
   hash,
   ...props
 }: TSNavLinkProps<Params>) => {
-  const router = useTSRouter();
+  const router = useTSRouter()
   return (
     <NavLink
       to={buildPath({
@@ -28,5 +28,5 @@ export const TSNavLink = <Params extends AnyParams>({
       })}
       {...props}
     />
-  );
-};
+  )
+}
