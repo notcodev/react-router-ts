@@ -1,14 +1,15 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Outlet } from 'react-router'
+import { Outlet } from 'react-router'
 
 import {
+  browserRouterAdapter,
   createLayoutView,
+  createMatcher,
   createRoute,
   createRoutesView,
   createRouteView,
-  createMatcher,
-  TSLink,
   MatcherProvider,
+  TSLink,
   useTSParams,
 } from '../src'
 
@@ -86,6 +87,7 @@ const RootLayoutView = createLayoutView({
 })
 
 const RoutesView = createRoutesView({
+  adapter: browserRouterAdapter(),
   views: [
     RootLayoutView(HomePageView, ProductsFeedPageView, ProductItemPageView),
   ],
@@ -95,11 +97,9 @@ const root = createRoot(document.querySelector('#app')!)
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <MatcherProvider matcher={matcher}>
-        <RoutesView />
-      </MatcherProvider>
-    </BrowserRouter>
+    <MatcherProvider matcher={matcher}>
+      <RoutesView />
+    </MatcherProvider>
   )
 }
 

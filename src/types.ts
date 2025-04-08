@@ -29,3 +29,7 @@ export type TransformProps<Props extends object, Params extends AnyParams> = {
   hash?: string
 } & Omit<Props, 'to'> &
   (Params extends ParamsRecord ? { params: Params } : { params?: never })
+
+export type Adapter = (props: {
+  children: React.ReactNode
+}) => React.ReactElement
