@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router'
 
 import { TSNavigate } from '../components/ts-navigate'
 import { renderRouteViews } from '../helpers/render-route-views'
-import { useTSRouter } from '../helpers/ts-router-context'
+import { useMatcher } from '../helpers/ts-router-context'
 import { LayoutView, RouteView } from '../types'
 
 export const createRoutesView =
@@ -14,13 +14,13 @@ export const createRoutesView =
     notFoundView?: RouteView
   }) =>
   () => {
-    const router = useTSRouter()
+    const matcher = useMatcher()
     return (
       <Routes>
-        {renderRouteViews(views, router.matcher)}
+        {renderRouteViews(views, matcher)}
         {notFoundView !== undefined && (
           <>
-            {notFoundView.render(router.matcher)}
+            {notFoundView.render(matcher)}
             <Route path="*" element={<TSNavigate to={notFoundView.route} />} />
           </>
         )}

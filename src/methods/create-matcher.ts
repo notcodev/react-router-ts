@@ -1,6 +1,6 @@
 import { AnyParams, Matcher, RouteInstance } from '../types'
 
-export const createRoutesMatcher = ({
+export const createMatcher = ({
   routes,
 }: {
   routes: { path: string; route: RouteInstance<AnyParams> }[]

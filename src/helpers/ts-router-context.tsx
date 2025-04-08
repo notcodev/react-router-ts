@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react'
 
-import { TSRouter } from '../types'
+import { Matcher } from '../types'
 
-const TSRouterContext = createContext<TSRouter | null>(null)
+const MatcherContext = createContext<Matcher | null>(null)
 
-export const useTSRouter = () => {
-  const context = useContext(TSRouterContext)
+export const useMatcher = () => {
+  const context = useContext(MatcherContext)
 
   if (!context) {
     throw new Error('useTSRouter must be used within a TSRouterProvider')
@@ -14,18 +14,18 @@ export const useTSRouter = () => {
   return context
 }
 
-export interface TSRouterProviderProps {
+export interface MatcherProviderProps {
   children: React.ReactNode
-  router: TSRouter
+  matcher: Matcher
 }
 
-export const TSRouterProvider = ({
+export const MatcherProvider = ({
   children,
-  router,
-}: TSRouterProviderProps) => {
+  matcher,
+}: MatcherProviderProps) => {
   return (
-    <TSRouterContext.Provider value={router}>
+    <MatcherContext.Provider value={matcher}>
       {children}
-    </TSRouterContext.Provider>
+    </MatcherContext.Provider>
   )
 }

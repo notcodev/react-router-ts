@@ -1,7 +1,7 @@
 import { NavLink, NavLinkProps } from 'react-router'
 
 import { buildPath } from '../helpers/build-path'
-import { useTSRouter } from '../helpers/ts-router-context'
+import { useMatcher } from '../helpers/ts-router-context'
 import { AnyParams, TransformProps } from '../types'
 
 export type TSNavLinkProps<Params extends AnyParams> = TransformProps<
@@ -16,7 +16,7 @@ export const TSNavLink = <Params extends AnyParams>({
   hash,
   ...props
 }: TSNavLinkProps<Params>) => {
-  const router = useTSRouter()
+  const matcher = useMatcher()
   return (
     <NavLink
       to={buildPath({
@@ -24,7 +24,7 @@ export const TSNavLink = <Params extends AnyParams>({
         params,
         search,
         hash,
-        matcher: router.matcher,
+        matcher,
       })}
       {...props}
     />

@@ -23,10 +23,6 @@ export interface Matcher {
   getPath: (route: RouteInstance<AnyParams>) => string
 }
 
-export interface TSRouter {
-  matcher: Matcher
-}
-
 export type TransformProps<Props extends object, Params extends AnyParams> = {
   to: RouteInstance<Params>
   search?: URLSearchParamsInit

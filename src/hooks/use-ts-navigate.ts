@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { NavigateOptions, URLSearchParamsInit, useNavigate } from 'react-router'
 
 import { buildPath } from '../helpers/build-path'
-import { useTSRouter } from '../helpers/ts-router-context'
+import { useMatcher } from '../helpers/ts-router-context'
 import { AnyParams, ParamsRecord, RouteInstance } from '../types'
 
 export type TSNavigateFunctionOptions<Params extends AnyParams> = {
@@ -21,7 +21,7 @@ export interface TSNavigateFunction {
 
 export const useTSNavigate = () => {
   const navigate = useNavigate()
-  const router = useTSRouter()
+  const matcher = useMatcher()
   const stableNavigate: TSNavigateFunction = useCallback(
     <Params extends AnyParams>(
       optionsOrDelta: TSNavigateFunctionOptions<Params> | number,
@@ -33,7 +33,7 @@ export const useTSNavigate = () => {
       const { to, params, search, hash, ...options } = optionsOrDelta
 
       return navigate(
-        buildPath({ route: to, params, search, hash, matcher: router.matcher }),
+        buildPath({ route: to, params, search, hash, matcher }),
         options,
       )
     },

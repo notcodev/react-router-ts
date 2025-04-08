@@ -6,9 +6,9 @@ import {
   createRoute,
   createRoutesView,
   createRouteView,
-  createTSRouter,
+  createMatcher,
   TSLink,
-  TSRouterProvider,
+  MatcherProvider,
   useTSParams,
 } from '../src'
 
@@ -17,7 +17,7 @@ const routes = {
   products: { feed: createRoute(), item: createRoute({ id: 'number' }) },
 }
 
-const router = createTSRouter({
+const matcher = createMatcher({
   routes: [
     { path: '/', route: routes.home },
     { path: '/products', route: routes.products.feed },
@@ -96,9 +96,9 @@ const root = createRoot(document.querySelector('#app')!)
 const App = () => {
   return (
     <BrowserRouter>
-      <TSRouterProvider router={router}>
+      <MatcherProvider matcher={matcher}>
         <RoutesView />
-      </TSRouterProvider>
+      </MatcherProvider>
     </BrowserRouter>
   )
 }
