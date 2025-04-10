@@ -1,3 +1,4 @@
+import React from 'react'
 import { HashRouter, HashRouterProps } from 'react-router'
 
 import { Adapter } from '../types'

@@ -1,3 +1,4 @@
+import React from 'react'
 import { PathRouteProps, Route } from 'react-router'
 
 import { renderRouteViews } from '../helpers/render-route-views'

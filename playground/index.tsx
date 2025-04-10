@@ -1,17 +1,19 @@
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { Outlet } from 'react-router'
-
 import {
-  browserRouterAdapter,
-  createLayoutView,
   createMatcher,
   createRoute,
-  createRoutesView,
-  createRouteView,
   MatcherProvider,
   TSLink,
   useTSParams,
-} from '../src'
+} from 'react-router-tsx'
+import {
+  browserRouterAdapter,
+  createLayoutView,
+  createRoutesView,
+  createRouteView,
+} from 'react-router-tsx/declarative'
 
 const routes = {
   home: createRoute(),

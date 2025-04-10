@@ -1,4 +1,5 @@
-import { LayoutView, Matcher, RouteView } from '../types'
+import { Matcher } from '../../common/types'
+import { LayoutView, RouteView } from '../types'
 
 export const renderRouteViews = (
   views: (RouteView | LayoutView)[],

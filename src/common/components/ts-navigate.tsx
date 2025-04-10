@@ -1,24 +1,25 @@
-import { Link, LinkProps } from 'react-router'
+import React from 'react'
+import { Navigate, NavigateProps } from 'react-router'
 
 import { buildPath } from '../helpers/build-path'
 import { useMatcher } from '../helpers/ts-router-context'
 import { AnyParams, TransformProps } from '../types'
 
-export type TSLinkProps<Params extends AnyParams> = TransformProps<
-  LinkProps,
+export type TSNavigateProps<Params extends AnyParams> = TransformProps<
+  NavigateProps,
   Params
 >
 
-export const TSLink = <Params extends AnyParams>({
+export const TSNavigate = <Params extends AnyParams>({
   to,
   params,
   search,
   hash,
   ...props
-}: TSLinkProps<Params>) => {
+}: TSNavigateProps<Params>) => {
   const matcher = useMatcher()
   return (
-    <Link
+    <Navigate
       to={buildPath({
         route: to,
         params,

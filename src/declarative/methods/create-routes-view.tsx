@@ -1,8 +1,8 @@
+import React from 'react'
 import { Route, Routes } from 'react-router'
 
-import { TSNavigate } from '../components/ts-navigate'
+import { TSNavigate, useMatcher } from '../../common'
 import { renderRouteViews } from '../helpers/render-route-views'
-import { useMatcher } from '../helpers/ts-router-context'
 import { Adapter, LayoutView, RouteView } from '../types'
 
 export const createRoutesView =

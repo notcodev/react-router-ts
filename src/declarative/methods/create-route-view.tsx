@@ -1,6 +1,8 @@
+import React from 'react'
 import { PathRouteProps, Route } from 'react-router'
 
-import { AnyParams, RouteInstance, RouteView } from '../types'
+import { AnyParams, RouteInstance } from '../../common'
+import { RouteView } from '../types'
 
 export const createRouteView = ({
   route,

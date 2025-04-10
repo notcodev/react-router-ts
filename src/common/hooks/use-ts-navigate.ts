@@ -37,7 +37,7 @@ export const useTSNavigate = () => {
         options,
       )
     },
-    [navigate],
+    [navigate, matcher],
   )
   return stableNavigate
 }

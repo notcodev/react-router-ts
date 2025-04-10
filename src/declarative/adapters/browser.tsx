@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter, BrowserRouterProps } from 'react-router'
 
 import { Adapter } from '../types'

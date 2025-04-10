@@ -1,4 +1,3 @@
-import React from 'react'
 import { URLSearchParamsInit } from 'react-router'
 
 export type ParamsRecord = Record<string, string | number>
@@ -7,16 +6,6 @@ export type ParamsProp = ParamsRecord | undefined
 
 export interface RouteInstance<Params extends AnyParams | void> {
   paramsDefinition?: Record<keyof Params, 'string' | 'number'>
-}
-
-export interface RouteView {
-  render: (matcher: Matcher, key?: React.Key) => React.ReactElement
-  route: RouteInstance<AnyParams>
-}
-
-export interface LayoutView {
-  render: (matcher: Matcher, key?: React.Key) => React.ReactElement
-  childViews: (RouteView | LayoutView)[]
 }
 
 export interface Matcher {
@@ -29,7 +18,3 @@ export type TransformProps<Props extends object, Params extends AnyParams> = {
   hash?: string
 } & Omit<Props, 'to'> &
   (Params extends ParamsRecord ? { params: Params } : { params?: never })
-
-export type Adapter = (props: {
-  children: React.ReactNode
-}) => React.ReactElement

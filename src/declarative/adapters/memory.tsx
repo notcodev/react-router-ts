@@ -1,3 +1,4 @@
+import React from 'react'
 import { MemoryRouter, MemoryRouterProps } from 'react-router'
 
 import { Adapter } from '../types'
