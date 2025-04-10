@@ -1,11 +1,12 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { Outlet } from 'react-router'
+import { Outlet, useNavigation } from 'react-router'
 import {
   createMatcher,
   createRoute,
   MatcherProvider,
   TSLink,
+  TSNavLink,
   useTSParams,
 } from 'react-router-tsx'
 import {
@@ -13,18 +14,20 @@ import {
   createLayoutView,
   createRoutesView,
   createRouteView,
-} from 'react-router-tsx/declarative'
+} from 'react-router-tsx/data'
 
 const routes = {
   home: createRoute(),
   products: { feed: createRoute(), item: createRoute({ id: 'number' }) },
+  heavyPage: createRoute(),
 }
 
 const matcher = createMatcher({
   routes: [
     { path: '/', route: routes.home },
-    { path: '/products', route: routes.products.feed },
+    { path: '/products/list', route: routes.products.feed },
     { path: '/products/:id', route: routes.products.item },
+    { path: '/heavy', route: routes.heavyPage },
   ],
 })
 
@@ -61,9 +64,29 @@ const ProductItemPageView = createRouteView({
   Component: ProductItemPage,
 })
 
+const delay = (ms: number) => {
+  return new Promise((res) => setTimeout(res, ms))
+}
+
+const HeavyPageView = createRouteView({
+  route: routes.heavyPage,
+  lazy: async () => {
+    await delay(500)
+    const [{ Page }, { loader }] = await Promise.all([
+      import('./page'),
+      import('./loader'),
+    ])
+    console.log('(@) Loader loaded')
+    return { Component: Page, loader }
+  },
+})
+
 const RootLayout = () => {
+  const navigation = useNavigation()
+
   return (
     <div>
+      {Boolean(navigation.location) && 'loading...'}
       <nav>
         <ul>
           <li>
@@ -76,6 +99,9 @@ const RootLayout = () => {
             <TSLink to={routes.products.item} params={{ id: 1 }}>
               Product
             </TSLink>
+          </li>
+          <li>
+            <TSNavLink to={routes.heavyPage}>Heavy</TSNavLink>
           </li>
         </ul>
       </nav>
@@ -91,8 +117,14 @@ const RootLayoutView = createLayoutView({
 const RoutesView = createRoutesView({
   adapter: browserRouterAdapter(),
   views: [
-    RootLayoutView(HomePageView, ProductsFeedPageView, ProductItemPageView),
+    RootLayoutView(
+      HomePageView,
+      ProductsFeedPageView,
+      ProductItemPageView,
+      HeavyPageView,
+    ),
   ],
+  otherwise: () => <div>not found</div>,
 })
 
 const root = createRoot(document.querySelector('#app')!)

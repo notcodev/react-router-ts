@@ -27,6 +27,11 @@
       "types": "./dist/types/declarative.d.ts",
       "import": "./dist/esm/declarative/index.js",
       "require": "./dist/cjs/declarative/index.js"
+    },
+    "./data": {
+      "types": "./dist/types/data.d.ts",
+      "import": "./dist/esm/data/index.js",
+      "require": "./dist/cjs/data/index.js"
     }
   },
   "files": [

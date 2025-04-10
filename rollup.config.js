@@ -70,6 +70,7 @@ const rollupConfig = [
     input: {
       common: 'src/common/index.ts',
       declarative: 'src/declarative/index.ts',
+      data: 'src/data/index.ts',
     },
     output: [{ dir: './dist/types', format: 'es' }],
     plugins: [dts()],

@@ -1,18 +1,18 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
 
-import { TSNavigate, useMatcher } from '../../common'
+import { useMatcher } from '../../common'
 import { renderRouteViews } from '../helpers/render-route-views'
 import { Adapter, LayoutView, RouteView } from '../types'
 
 export const createRoutesView =
   ({
     views,
-    notFoundView,
+    otherwise,
     adapter: Router,
   }: {
     views: (RouteView | LayoutView)[]
-    notFoundView?: RouteView
+    otherwise?: React.ComponentType
     adapter: Adapter
   }) =>
   () => {
@@ -21,15 +21,7 @@ export const createRoutesView =
       <Router>
         <Routes>
           {renderRouteViews(views, matcher)}
-          {notFoundView !== undefined && (
-            <>
-              {notFoundView.render(matcher)}
-              <Route
-                path="*"
-                element={<TSNavigate to={notFoundView.route} />}
-              />
-            </>
-          )}
+          {otherwise && <Route Component={otherwise} path="*" />}
         </Routes>
       </Router>
     )
