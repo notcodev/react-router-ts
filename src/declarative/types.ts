@@ -1,13 +1,9 @@
 import { AnyParams, Matcher, RouteInstance } from '../common'
 
-export interface RouteView {
+export interface View {
   render: (matcher: Matcher, key?: React.Key) => React.ReactElement
-  route: RouteInstance<AnyParams>
-}
-
-export interface LayoutView {
-  render: (matcher: Matcher, key?: React.Key) => React.ReactElement
-  childViews: (RouteView | LayoutView)[]
+  childViews: View[]
+  route?: RouteInstance<AnyParams>
 }
 
 export type Adapter = (props: {

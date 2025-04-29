@@ -2,8 +2,8 @@ import React from 'react'
 import { Route, Routes } from 'react-router'
 
 import { useMatcher } from '../../common'
-import { renderRouteViews } from '../helpers/render-route-views'
-import { Adapter, LayoutView, RouteView } from '../types'
+import { renderViews } from '../helpers/render-route-views'
+import { Adapter, View } from '../types'
 
 export const createRoutesView =
   ({
@@ -11,7 +11,7 @@ export const createRoutesView =
     otherwise,
     adapter: Router,
   }: {
-    views: (RouteView | LayoutView)[]
+    views: View[]
     otherwise?: React.ComponentType
     adapter: Adapter
   }) =>
@@ -20,7 +20,7 @@ export const createRoutesView =
     return (
       <Router>
         <Routes>
-          {renderRouteViews(views, matcher)}
+          {renderViews(views, matcher)}
           {otherwise && <Route Component={otherwise} path="*" />}
         </Routes>
       </Router>

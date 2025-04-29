@@ -2,8 +2,8 @@ import React, { useMemo } from 'react'
 import { RouterProvider } from 'react-router'
 
 import { useMatcher } from '../../common'
-import { buildRouteViews } from '../helpers/build-route-views'
-import { Adapter, LayoutView, RouteView } from '../types'
+import { buildViews } from '../helpers/build-views'
+import { Adapter, View } from '../types'
 
 export const createRoutesView =
   ({
@@ -11,14 +11,14 @@ export const createRoutesView =
     otherwise,
     adapter,
   }: {
-    views: (RouteView | LayoutView)[]
+    views: View[]
     otherwise?: React.ComponentType
     adapter: Adapter
   }) =>
   () => {
     const matcher = useMatcher()
     const router = useMemo(() => {
-      const builtViews = buildRouteViews(views, matcher)
+      const builtViews = buildViews(views, matcher)
       if (otherwise !== undefined)
         builtViews.push({ path: '*', Component: otherwise })
       return adapter(builtViews)

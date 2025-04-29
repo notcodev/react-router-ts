@@ -10,7 +10,6 @@ export {
   memoryRouterAdapter,
   type MemoryRouterAdapterOptions,
 } from './adapters/memory'
-export { createLayoutView } from './methods/create-layout-view'
-export { createRouteView } from './methods/create-route-view'
 export { createRoutesView } from './methods/create-routes-view'
-export type { Adapter, LayoutView, RouteView } from './types'
+export { createView } from './methods/create-view'
+export type { Adapter, View } from './types'

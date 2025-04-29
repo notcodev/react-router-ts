@@ -1,7 +1,5 @@
 import { Matcher } from '../../common/types'
-import { LayoutView, RouteView } from '../types'
+import { View } from '../types'
 
-export const renderRouteViews = (
-  views: (RouteView | LayoutView)[],
-  matcher: Matcher,
-) => views.map((view, index) => view.render(matcher, index))
+export const renderViews = (views: View[], matcher: Matcher) =>
+  views.map((view, index) => view.render(matcher, index))
