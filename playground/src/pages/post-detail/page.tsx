@@ -3,14 +3,13 @@ import { useLoaderData } from 'react-router'
 
 import { loader } from './loader'
 
-export const Page = () => {
-  const data = useLoaderData<typeof loader>()
+export const PostDetailPage = () => {
+  const post = useLoaderData<typeof loader>()
 
   return (
     <div>
-      {data.a}
-      {data.b}
-      {data.c}
+      <h1>Post Detail</h1>
+      <p>{post.content}</p>
     </div>
   )
 }
