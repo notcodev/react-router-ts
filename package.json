@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "author": {
     "name": "Erik Codev",
     "url": "https://github.com/notcodev"
@@ -14,9 +14,9 @@
       "url": "https://github.com/notcodev"
     }
   ],
-  "homepage": "https://github.com/notcodev/react-router-ts",
-  "repository": "https://github.com/notcodev/react-router-ts",
-  "bugs": "https://github.com/notcodev/react-router-ts/issues",
+  "homepage": "https://github.com/notcodev/react-router-tsx",
+  "repository": "https://github.com/notcodev/react-router-tsx",
+  "bugs": "https://github.com/notcodev/react-router-tsx/issues",
   "exports": {
     ".": {
       "types": "./dist/types/common.d.ts",
