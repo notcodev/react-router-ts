@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const ErrorBoundary = () => {
-  return <div>error </div>
+  return <div>error</div>
 }

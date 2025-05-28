@@ -1,6 +1,8 @@
-import { createHashRouter, DOMRouterOpts } from 'react-router'
+import type { DOMRouterOpts } from 'react-router'
 
-import { Adapter } from '../types'
+import { createHashRouter } from 'react-router'
+
+import type { Adapter } from '../types'
 
 export type HashRouterAdapterOptions = DOMRouterOpts
 

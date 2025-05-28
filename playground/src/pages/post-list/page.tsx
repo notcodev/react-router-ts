@@ -1,4 +1,3 @@
-import React from 'react'
 import { Outlet, useLoaderData } from 'react-router'
 import { TSLink } from 'react-router-tsx'
 

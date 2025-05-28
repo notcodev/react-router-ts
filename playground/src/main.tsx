@@ -1,4 +1,3 @@
-import React from 'react'
 import { createRoot } from 'react-dom/client'
 import { MatcherProvider } from 'react-router-tsx'
 import { browserRouterAdapter, createRoutesView } from 'react-router-tsx/data'
@@ -11,9 +10,7 @@ import { matcher } from './routing'
 
 const RoutesView = createRoutesView({
   adapter: browserRouterAdapter(),
-  views: [
-    RootLayoutView(HomePageView(), PostListPageView(PostDetailPageView())),
-  ],
+  views: [RootLayoutView(HomePageView(), PostListPageView(PostDetailPageView()))],
   otherwise: () => <div>not found</div>,
 })
 

@@ -1,6 +1,6 @@
 export type ParserOutput<T> =
-  | { valid: true; rawValue: unknown; value: T }
   | { valid: false; rawValue: unknown; value: null }
+  | { valid: true; rawValue: unknown; value: T }
 
 export const parsers = {
   number: (param: unknown) => {

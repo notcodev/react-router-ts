@@ -1,14 +1,14 @@
+import type { NavLinkProps } from 'react-router'
+
 import React from 'react'
-import { NavLink, NavLinkProps } from 'react-router'
+import { NavLink } from 'react-router'
+
+import type { AnyParams, TransformProps } from '../types'
 
 import { buildPath } from '../helpers/build-path'
 import { useMatcher } from '../helpers/ts-router-context'
-import { AnyParams, TransformProps } from '../types'
 
-export type TSNavLinkProps<Params extends AnyParams> = TransformProps<
-  NavLinkProps,
-  Params
->
+export type TSNavLinkProps<Params extends AnyParams> = TransformProps<NavLinkProps, Params>
 
 export const TSNavLink = <Params extends AnyParams>({
   to,
@@ -16,7 +16,7 @@ export const TSNavLink = <Params extends AnyParams>({
   search,
   hash,
   ...props
-}: TSNavLinkProps<Params>) => {
+}: TSNavLinkProps<Params>): React.ReactElement => {
   const matcher = useMatcher()
   return (
     <NavLink

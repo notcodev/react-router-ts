@@ -1,17 +1,15 @@
-import { RouteObject } from 'react-router'
+import type { RouteObject } from 'react-router'
 
-import { AnyParams, RouteInstance } from '../../common'
+import type { AnyParams, RouteInstance } from '../../common'
+import type { View } from '../types'
+
 import { buildViews } from '../helpers/build-views'
-import { View } from '../types'
 
 export const createView =
   ({
     route,
     ...props
-  }: { route?: RouteInstance<AnyParams> } & Omit<
-    RouteObject,
-    'path' | 'index' | 'children'
-  >) =>
+  }: { route?: RouteInstance<AnyParams> } & Omit<RouteObject, 'children' | 'index' | 'path'>) =>
   (...childViews: View[]): View => ({
     build: (matcher) => {
       return {

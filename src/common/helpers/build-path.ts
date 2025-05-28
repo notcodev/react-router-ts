@@ -1,6 +1,8 @@
-import { createSearchParams, Path, URLSearchParamsInit } from 'react-router'
+import type { Path, URLSearchParamsInit } from 'react-router'
 
-import { Matcher, ParamsProp, RouteInstance } from '../types'
+import { createSearchParams } from 'react-router'
+
+import type { Matcher, ParamsProp, RouteInstance } from '../types'
 
 export const buildPath = <Params extends ParamsProp>({
   route,

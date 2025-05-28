@@ -1,14 +1,14 @@
+import type { LinkProps } from 'react-router'
+
 import React from 'react'
-import { Link, LinkProps } from 'react-router'
+import { Link } from 'react-router'
+
+import type { AnyParams, TransformProps } from '../types'
 
 import { buildPath } from '../helpers/build-path'
 import { useMatcher } from '../helpers/ts-router-context'
-import { AnyParams, TransformProps } from '../types'
 
-export type TSLinkProps<Params extends AnyParams> = TransformProps<
-  LinkProps,
-  Params
->
+export type TSLinkProps<Params extends AnyParams> = TransformProps<LinkProps, Params>
 
 export const TSLink = <Params extends AnyParams>({
   to,
@@ -16,7 +16,7 @@ export const TSLink = <Params extends AnyParams>({
   search,
   hash,
   ...props
-}: TSLinkProps<Params>) => {
+}: TSLinkProps<Params>): React.ReactElement => {
   const matcher = useMatcher()
   return (
     <Link

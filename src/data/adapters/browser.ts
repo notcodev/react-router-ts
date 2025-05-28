@@ -1,6 +1,8 @@
-import { createBrowserRouter, DOMRouterOpts } from 'react-router'
+import type { DOMRouterOpts } from 'react-router'
 
-import { Adapter } from '../types'
+import { createBrowserRouter } from 'react-router'
+
+import type { Adapter } from '../types'
 
 export type BrowserRouterAdapterOptions = DOMRouterOpts
 

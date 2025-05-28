@@ -1,11 +1,11 @@
-import { URLSearchParamsInit } from 'react-router'
+import type { URLSearchParamsInit } from 'react-router'
 
-export type ParamsRecord = Record<string, string | number>
+export type ParamsRecord = Record<string, number | string>
 export type AnyParams = ParamsRecord | void
 export type ParamsProp = ParamsRecord | undefined
 
 export interface RouteInstance<Params extends AnyParams | void> {
-  paramsDefinition?: Record<keyof Params, 'string' | 'number'>
+  paramsDefinition?: Record<keyof Params, 'number' | 'string'>
 }
 
 export interface Matcher {

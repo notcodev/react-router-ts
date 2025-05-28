@@ -1,5 +1,7 @@
-import { Matcher } from '../../common/types'
-import { View } from '../types'
+import type { RouteObject } from 'react-router'
 
-export const buildViews = (views: View[], matcher: Matcher) =>
+import type { Matcher } from '../../common/types'
+import type { View } from '../types'
+
+export const buildViews = (views: View[], matcher: Matcher): RouteObject[] =>
   views.map((view) => view.build(matcher))

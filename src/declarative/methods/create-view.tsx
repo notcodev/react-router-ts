@@ -1,26 +1,22 @@
-import React from 'react'
-import { PathRouteProps, Route } from 'react-router'
+import type { PathRouteProps } from 'react-router'
 
-import { AnyParams, RouteInstance } from '../../common'
+import React from 'react'
+import { Route } from 'react-router'
+
+import type { AnyParams, RouteInstance } from '../../common'
+import type { View } from '../types'
+
 import { renderViews } from '../helpers/render-route-views'
-import { View } from '../types'
 
 export const createView =
   ({
     route,
     ...props
-  }: { route?: RouteInstance<AnyParams> } & Omit<
-    PathRouteProps,
-    'path' | 'index' | 'children'
-  >) =>
+  }: { route?: RouteInstance<AnyParams> } & Omit<PathRouteProps, 'children' | 'index' | 'path'>) =>
   (...childViews: View[]): View => {
     return {
       render: (matcher, key) => (
-        <Route
-          key={key}
-          path={route ? matcher.getPath(route) : undefined}
-          {...props}
-        >
+        <Route key={key} path={route ? matcher.getPath(route) : undefined} {...props}>
           {renderViews(childViews, matcher)}
         </Route>
       ),

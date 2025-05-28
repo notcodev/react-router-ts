@@ -1,9 +1,7 @@
-import { RouteInstance } from '../types'
+import type { RouteInstance } from '../types'
 
 export function createRoute(): RouteInstance<void>
-export function createRoute<
-  Definitions extends Record<string, 'string' | 'number'>,
->(
+export function createRoute<Definitions extends Record<string, 'number' | 'string'>>(
   paramsDefinition: Definitions,
 ): RouteInstance<{
   [Key in keyof Definitions]: {
@@ -12,6 +10,6 @@ export function createRoute<
   }[Definitions[Key]]
 }>
 
-export function createRoute(paramsDefinition?: any) {
+export function createRoute(paramsDefinition?: any): RouteInstance<any> {
   return { paramsDefinition }
 }

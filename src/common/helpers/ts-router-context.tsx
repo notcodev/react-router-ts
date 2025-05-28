@@ -1,10 +1,10 @@
 import React, { createContext, useContext } from 'react'
 
-import { Matcher } from '../types'
+import type { Matcher } from '../types'
 
 const MatcherContext = createContext<Matcher | null>(null)
 
-export const useMatcher = () => {
+export const useMatcher = (): Matcher => {
   const context = useContext(MatcherContext)
 
   if (!context) {
@@ -22,10 +22,6 @@ export interface MatcherProviderProps {
 export const MatcherProvider = ({
   children,
   matcher,
-}: MatcherProviderProps) => {
-  return (
-    <MatcherContext.Provider value={matcher}>
-      {children}
-    </MatcherContext.Provider>
-  )
+}: MatcherProviderProps): React.ReactElement => {
+  return <MatcherContext.Provider value={matcher}>{children}</MatcherContext.Provider>
 }

@@ -1,9 +1,9 @@
-import path from 'path'
 import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
 import { globSync } from 'glob'
+import path from 'node:path'
 import { dts } from 'rollup-plugin-dts'
 
 import pkg from './package.json'
@@ -18,13 +18,7 @@ const rollupConfig = [
       globSync(`src/**/*.{ts,tsx}`, {
         ignore: `src/**/*.{test,stories}.{ts,tsx}`,
       }).map((file) => {
-        return [
-          path.relative(
-            'src',
-            file.slice(0, file.length - path.extname(file).length),
-          ),
-          file,
-        ]
+        return [path.relative('src', file.slice(0, file.length - path.extname(file).length)), file]
       }),
     ),
     output: [
@@ -57,11 +51,7 @@ const rollupConfig = [
         exclude: /node_modules/,
         babelHelpers: 'bundled',
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
-        presets: [
-          '@babel/preset-env',
-          '@babel/preset-typescript',
-          '@babel/preset-react',
-        ],
+        presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
       }),
     ],
     external,

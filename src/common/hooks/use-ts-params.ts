@@ -1,7 +1,9 @@
 import { useParams } from 'react-router'
 
-import { ParserOutput, parsers } from '../helpers/parsers'
-import { AnyParams, RouteInstance } from '../types'
+import type { ParserOutput } from '../helpers/parsers'
+import type { AnyParams, RouteInstance } from '../types'
+
+import { parsers } from '../helpers/parsers'
 
 export type UseTSParamsOutput<Params extends AnyParams> = Readonly<{
   [Key in keyof Params]: ParserOutput<Params[Key]>
@@ -16,10 +18,7 @@ export const useTSParams = <Params extends AnyParams>(
     return {} as UseTSParamsOutput<Params>
   }
 
-  const entries = Object.entries(route.paramsDefinition) as [
-    keyof Params,
-    'string' | 'number',
-  ][]
+  const entries = Object.entries(route.paramsDefinition) as [keyof Params, 'number' | 'string'][]
 
   const parsedParamsEntries = entries.map(
     ([key, value]) => [key, parsers[value](params[key])] as const,

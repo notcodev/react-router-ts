@@ -1,6 +1,8 @@
-import { createMemoryRouter, MemoryRouterOpts } from 'react-router'
+import type { MemoryRouterOpts } from 'react-router'
 
-import { Adapter } from '../types'
+import { createMemoryRouter } from 'react-router'
+
+import type { Adapter } from '../types'
 
 export type MemoryRouterAdapterOptions = MemoryRouterOpts
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Outlet, useNavigation } from 'react-router'
 import { TSLink, TSNavLink } from 'react-router-tsx'
 
@@ -17,7 +16,7 @@ export const RootLayout = () => {
           </li>
           <li>
             <TSNavLink to={routes.posts.list}>
-              {({ isActive }) => `${isActive ? '(active)' : ''} Products`}
+              {({ isActive }) => `${isActive ? '(active)' : ''} Posts`}
             </TSNavLink>
           </li>
         </ul>
