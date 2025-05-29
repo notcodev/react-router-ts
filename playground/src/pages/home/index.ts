@@ -5,7 +5,7 @@ import { routes } from '../../routing'
 export const HomePageView = createView({
   route: routes.home,
   lazy: async () => {
-    const { HomePage } = await import('./page')
-    return { Component: HomePage }
+    const [{ HomePage }, { loader }] = await Promise.all([import('./page'), import('./loader')])
+    return { Component: HomePage, loader }
   },
 })

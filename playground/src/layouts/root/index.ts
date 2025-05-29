@@ -1,4 +1,5 @@
 import { createView } from 'react-router-tsx/data'
+import {} from 'react-router'
 
 import { HydrateFallback } from './hydrate-fallback'
 

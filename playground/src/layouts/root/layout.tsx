@@ -2,13 +2,28 @@ import { Outlet, useNavigation } from 'react-router'
 import { TSLink, TSNavLink } from 'react-router-tsx'
 
 import { routes } from '../../routing'
+import { useUser, useUserSetter } from '../../user-context'
 
 export const RootLayout = () => {
   const navigation = useNavigation()
+  const user = useUser()
+  const setUser = useUserSetter()
 
   return (
     <div>
       {navigation.state === 'loading' && 'loading...'}
+      <div>
+        <pre>{JSON.stringify(user)}</pre>
+      </div>
+      <div>
+        {!user ? (
+          <button onClick={() => setUser({ id: '1', firstName: 'Ivan', lastName: 'Ivanov' })}>
+            Login
+          </button>
+        ) : (
+          <button onClick={() => setUser(null)}>Logout</button>
+        )}
+      </div>
       <nav>
         <ul>
           <li>
