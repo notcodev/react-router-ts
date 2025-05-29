@@ -13,4 +13,4 @@ export type TSRouteProps = { route?: RouteInstance<AnyParams> } & Omit<
   'children' | 'index' | 'path'
 >
 
-export type Adapter = React.FC<{ children: React.ReactNode }>
+export type Adapter = React.ComponentType<{ children: React.ReactNode }>

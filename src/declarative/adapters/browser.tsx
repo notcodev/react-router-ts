@@ -5,14 +5,11 @@ import { BrowserRouter } from 'react-router'
 
 import type { Adapter } from '../types'
 
+import { withDisplayName } from '../../shared/hocs'
+
 export type BrowserRouterAdapterOptions = Omit<BrowserRouterProps, 'children'>
 
-export const browserRouterAdapter = (options?: BrowserRouterAdapterOptions): Adapter => {
-  const BrowserRouterAdapter: Adapter = ({ children }) => (
+export const browserRouterAdapter = (options?: BrowserRouterAdapterOptions): Adapter =>
+  withDisplayName('BrowserRouterAdapter', (({ children }) => (
     <BrowserRouter {...options}>{children}</BrowserRouter>
-  )
-
-  BrowserRouterAdapter.displayName = 'BrowserRouterAdapter'
-
-  return BrowserRouterAdapter
-}
+  )) satisfies Adapter)

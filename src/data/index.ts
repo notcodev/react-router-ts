@@ -3,11 +3,4 @@ export { hashRouterAdapter, type HashRouterAdapterOptions } from './adapters/has
 export { memoryRouterAdapter, type MemoryRouterAdapterOptions } from './adapters/memory'
 export { createRoutesView } from './methods/create-routes-view'
 export { createView } from './methods/create-view'
-export type {
-  Adapter,
-  TSLazyRouteFunction,
-  TSLoaderFunction,
-  TSLoaderFunctionArgs,
-  TSRouteObject,
-  View,
-} from './types'
+export type { Adapter, TSRouteObject, View } from './types'
