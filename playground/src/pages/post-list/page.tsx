@@ -1,7 +1,7 @@
 import { Outlet, useLoaderData } from 'react-router'
 import { TSLink } from 'react-router-tsx'
 
-import { routes } from '../../routing'
+import { routes } from '../../shared/routing'
 import { loader } from './loader'
 
 export const PostsPage = () => {

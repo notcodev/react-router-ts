@@ -1,16 +1,13 @@
 import { data } from 'react-router'
 
-import { posts } from '../../posts'
-import { delay } from '../../utils'
-import { TSLoaderFunctionArgs } from 'react-router-tsx/data'
-import { RouterContext } from '../../router-context'
+import { getPost } from '../../shared/api/posts'
+import { LoaderFunctionArgs } from 'react-router'
 
-export const loader = async ({ params }: TSLoaderFunctionArgs<RouterContext, any>) => {
+export const loader = async ({ params }: LoaderFunctionArgs) => {
   console.log('Started post detail loader...')
   const id = Number(params.id)
 
-  await delay(500)
-  const post = posts.find((post) => post.id === id)
+  const post = await getPost(id)
 
   if (!post) {
     throw data({ code: 'not found' })

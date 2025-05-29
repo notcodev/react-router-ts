@@ -1,6 +1,6 @@
 import { createView } from 'react-router-tsx/data'
 
-import { routes } from '../../routing'
+import { routes } from '../../shared/routing'
 
 export const PostListPageView = createView({
   route: routes.posts.list,

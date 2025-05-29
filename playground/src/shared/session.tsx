@@ -1,4 +1,7 @@
+import { RouteInstance } from 'react-router-tsx'
 import { createContext, Dispatch, SetStateAction, useContext, useState } from 'react'
+import { RouteObject } from 'react-router'
+import { routes } from './routing'
 
 export interface User {
   id: string
@@ -46,4 +49,21 @@ export const useUserSetter = () => {
   }
 
   return ctx
+}
+
+interface GuardEventOptions {
+  route: RouteInstance<any>
+}
+
+export const createGuard = ({
+  getUser,
+  onAnonymous,
+  onAuthenticated,
+}: {
+  getUser: () => User | null
+  onAuthenticated: (options: GuardEventOptions) => any
+  onAnonymous: (options: GuardEventOptions) => any
+}) => {
+  const user = getUser()
+  return user ? onAuthenticated({ route: routes.protected }) : onAnonymous({ route: routes.home })
 }

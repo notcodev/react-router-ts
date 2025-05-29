@@ -1,6 +1,6 @@
 import { createView } from 'react-router-tsx/data'
 
-import { routes } from '../../routing'
+import { routes } from '../../shared/routing'
 
 export const HomePageView = createView({
   route: routes.home,

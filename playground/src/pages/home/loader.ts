@@ -1,8 +1,7 @@
-import { RouterContext } from '../../router-context'
-import { TSLoaderFunctionArgs } from 'react-router-tsx/data'
+import { LoaderFunctionArgs } from 'react-router'
 
-export const loader = ({ context }: TSLoaderFunctionArgs<RouterContext, any>) => {
+export const loader = ({ context }: LoaderFunctionArgs) => {
   console.log('Home loader called...')
-  console.log('Custom context value:', context)
+  console.log('Current loader context:', context)
   return context
 }

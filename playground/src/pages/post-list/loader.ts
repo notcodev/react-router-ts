@@ -1,8 +1,6 @@
-import { posts } from '../../posts'
-import { delay } from '../../utils'
+import { getListPosts } from '../../shared/api/posts'
 
 export const loader = async () => {
   console.log('Started post list loader...')
-  await delay(500)
-  return posts
+  return getListPosts()
 }

@@ -1,8 +1,8 @@
 import { Outlet, useNavigation } from 'react-router'
 import { TSLink, TSNavLink } from 'react-router-tsx'
 
-import { routes } from '../../routing'
-import { useUser, useUserSetter } from '../../user-context'
+import { routes } from '../../shared/routing'
+import { useUser, useUserSetter } from '../../shared/session'
 
 export const RootLayout = () => {
   const navigation = useNavigation()
@@ -28,6 +28,9 @@ export const RootLayout = () => {
         <ul>
           <li>
             <TSLink to={routes.home}>Home</TSLink>
+          </li>
+          <li>
+            <TSLink to={routes.protected}>Protected</TSLink>
           </li>
           <li>
             <TSNavLink to={routes.posts.list}>

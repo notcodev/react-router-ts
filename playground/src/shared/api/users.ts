@@ -1,4 +1,4 @@
-import { delay } from './utils'
+import { delay } from '../utils'
 
 export const getUser = async () => {
   await delay(300)

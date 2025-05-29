@@ -1,5 +1,5 @@
 import { MatcherProvider, MatcherProviderProps } from 'react-router-tsx'
-import { UserContextProvider, UserContextProviderProps } from '../user-context'
+import { UserContextProvider, UserContextProviderProps } from '../shared/session'
 
 type OmitChildren<T> = Omit<T, 'children'>
 

@@ -1,7 +1,7 @@
 import { Providers, ProvidersProps } from './providers'
-import { matcher } from '../routing'
+import { matcher } from '../shared/routing'
 import { createRoot } from 'react-dom/client'
-import { getUser } from '../fetch-mocks'
+import { getUser } from '../shared/api/users'
 
 const root = createRoot(document.querySelector('#app')!)
 

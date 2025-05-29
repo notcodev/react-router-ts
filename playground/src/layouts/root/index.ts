@@ -1,5 +1,4 @@
 import { createView } from 'react-router-tsx/data'
-import {} from 'react-router'
 
 import { HydrateFallback } from './hydrate-fallback'
 
@@ -10,7 +9,7 @@ export const RootLayoutView = createView({
       import('./error-boundary'),
     ])
 
-    return { ErrorBoundary, Component: RootLayout }
+    return { Component: RootLayout }
   },
   HydrateFallback,
 })
