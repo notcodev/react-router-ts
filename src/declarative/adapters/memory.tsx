@@ -5,14 +5,11 @@ import { MemoryRouter } from 'react-router'
 
 import type { Adapter } from '../types'
 
+import { withDisplayName } from '../../shared/hocs'
+
 export type MemoryRouterAdapterOptions = Omit<MemoryRouterProps, 'children'>
 
-export const memoryRouterAdapter = (options?: MemoryRouterAdapterOptions): Adapter => {
-  const MemoryRouterAdapter: Adapter = ({ children }) => (
+export const memoryRouterAdapter = (options?: MemoryRouterAdapterOptions): Adapter =>
+  withDisplayName<Adapter>('MemoryRouterAdapter', ({ children }) => (
     <MemoryRouter {...options}>{children}</MemoryRouter>
-  )
-
-  MemoryRouterAdapter.displayName = 'MemoryRouterAdapter'
-
-  return MemoryRouterAdapter
-}
+  ))

@@ -10,6 +10,6 @@ import { withDisplayName } from '../../shared/hocs'
 export type BrowserRouterAdapterOptions = Omit<BrowserRouterProps, 'children'>
 
 export const browserRouterAdapter = (options?: BrowserRouterAdapterOptions): Adapter =>
-  withDisplayName('BrowserRouterAdapter', (({ children }) => (
+  withDisplayName<Adapter>('BrowserRouterAdapter', ({ children }) => (
     <BrowserRouter {...options}>{children}</BrowserRouter>
-  )) satisfies Adapter)
+  ))
