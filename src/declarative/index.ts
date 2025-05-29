@@ -1,15 +1,6 @@
-export {
-  browserRouterAdapter,
-  type BrowserRouterAdapterOptions,
-} from './adapters/browser'
-export {
-  hashRouterAdapter,
-  type HashRouterAdapterOptions,
-} from './adapters/hash'
-export {
-  memoryRouterAdapter,
-  type MemoryRouterAdapterOptions,
-} from './adapters/memory'
+export { browserRouterAdapter, type BrowserRouterAdapterOptions } from './adapters/browser'
+export { hashRouterAdapter, type HashRouterAdapterOptions } from './adapters/hash'
+export { memoryRouterAdapter, type MemoryRouterAdapterOptions } from './adapters/memory'
 export { createRoutesView } from './methods/create-routes-view'
 export { createView } from './methods/create-view'
-export type { Adapter, View } from './types'
+export type { Adapter, TSRouteProps, View } from './types'

@@ -4,6 +4,8 @@ import { createSearchParams } from 'react-router'
 
 import type { Matcher, ParamsProp, RouteInstance } from '../types'
 
+import { ifPresent } from '../../shared/utils'
+
 export const buildPath = <Params extends ParamsProp>({
   route,
   params,
@@ -27,7 +29,7 @@ export const buildPath = <Params extends ParamsProp>({
       : path
   return {
     pathname,
-    hash: hash ? `#${hash}` : undefined,
-    search: search ? `?${createSearchParams(search).toString()}` : undefined,
+    hash: ifPresent(hash, (hash) => `#${hash}`),
+    search: ifPresent(search, (search) => `?${createSearchParams(search).toString()}`),
   }
 }
